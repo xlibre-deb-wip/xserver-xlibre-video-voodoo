@@ -1,0 +1,21 @@
+Source: xserver-xorg-driver-voodoo
+Section: x11
+Priority: optional
+Maintainer: Daniel Stone <daniel.stone@ubuntu.com>
+Build-Depends: debhelper (>= 4.0.0), pkg-config, xserver-xorg-dev, x11proto-xext-dev, x11proto-xf86dga-dev, x11proto-core-dev, x11proto-fonts-dev, x11proto-randr-dev, x11proto-render-dev
+Standards-Version: 3.6.1.0
+
+Package: xserver-xorg-driver-voodoo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: xserver-xorg-driver
+Replaces: xserver-xorg (<< 6.8.2-35)
+Description: X.Org X server -- Voodoo display driver
+ This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This module can be found as the module 'driver/xf86-video-voodoo' at
+ :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg
