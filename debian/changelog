@@ -1,10 +1,17 @@
-xserver-xorg-video-voodoo (1:1.0.0.5-3) UNRELEASED; urgency=low
+xserver-xorg-video-voodoo (1:1.1.0-1) experimental; urgency=low
 
+  [ Andres Salomon ]
   * Test for obj-$(DEB_BUILD_GNU_TYPE) before creating it during build;
     idempotency fix.
   * Run dh_install w/ --list-missing.
 
- -- Andres Salomon <dilinger@debian.org>  Mon, 17 Jul 2006 01:09:03 -0400
+  [ David Nusinow ]
+  * New upstream release
+  * Add dependency on xserver-xorg-core  >= 1:1.1.1. Bump the version for
+    the build-dep on xserver-xorg-dev.
+  * Bump debhelper compat to 5
+
+ -- David Nusinow <dnusinow@debian.org>  Wed, 16 Aug 2006 19:36:45 +0000
 
 xserver-xorg-video-voodoo (1:1.0.0.5-2) unstable; urgency=low
 
