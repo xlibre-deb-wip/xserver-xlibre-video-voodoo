@@ -9,7 +9,7 @@ Standards-Version: 3.6.1
 Package: xserver-xorg-video-voodoo
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, xserver-xorg-core (>= 1:1.1.1)
-Provides: xserver-xorg-video
+Provides: xserver-xorg-video-1.0
 Replaces: xserver-xorg (<< 6.8.2-35)
 Description: X.Org X server -- Voodoo display driver
  This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
