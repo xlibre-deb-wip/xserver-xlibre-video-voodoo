@@ -1,3 +1,35 @@
+xserver-xorg-video-voodoo (1:1.1.0-3) UNRELEASED; urgency=low
+
+  * Upload to unstable
+
+ -- Steve Langasek <vorlon@debian.org>  Mon, 18 Sep 2006 05:42:00 -0700
+
+xserver-xorg-video-voodoo (1:1.1.0-2) experimental; urgency=low
+
+  [ Drew Parsons ]
+  *  Provides: xserver-xorg-video-1.0 not xserver-xorg-video.
+
+  [ David Nusinow ]
+  * Bump xserver (build-)depends epochs to 2: to deal with botched
+    server upload
+
+ -- David Nusinow <dnusinow@debian.org>  Tue, 22 Aug 2006 23:46:52 +0000
+
+xserver-xorg-video-voodoo (1:1.1.0-1) experimental; urgency=low
+
+  [ Andres Salomon ]
+  * Test for obj-$(DEB_BUILD_GNU_TYPE) before creating it during build;
+    idempotency fix.
+  * Run dh_install w/ --list-missing.
+
+  [ David Nusinow ]
+  * New upstream release
+  * Add dependency on xserver-xorg-core  >= 1:1.1.1. Bump the version for
+    the build-dep on xserver-xorg-dev.
+  * Bump debhelper compat to 5
+
+ -- David Nusinow <dnusinow@debian.org>  Wed, 16 Aug 2006 19:36:45 +0000
+
 xserver-xorg-video-voodoo (1:1.0.0.5-2) unstable; urgency=low
 
   * Upload to modular
