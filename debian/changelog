@@ -1,3 +1,9 @@
+xserver-xorg-video-voodoo (1:1.1.0-6) UNRELEASED; urgency=low
+
+  * Bump xserver ABI metadata to 1.1 for use with server 1.2
+
+ -- David Nusinow <dnusinow@debian.org>  Sat, 10 Feb 2007 21:23:57 -0500
+
 xserver-xorg-video-voodoo (1:1.1.0-5) UNRELEASED; urgency=low
 
   * Add link to xserver-xorg-core bug script, so that bugreports contain
