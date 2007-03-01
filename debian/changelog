@@ -1,9 +1,9 @@
-xserver-xorg-video-voodoo (1:1.1.1-1) UNRELEASED; urgency=low
+xserver-xorg-video-voodoo (1:1.1.1-1) experimental; urgency=low
 
   * New upstream version
   * Generate server dependencies automatically from the ABI
 
- -- David Nusinow <dnusinow@debian.org>  Tue, 20 Feb 2007 22:27:40 -0500
+ -- David Nusinow <dnusinow@debian.org>  Wed, 21 Feb 2007 22:54:49 -0500
 
 xserver-xorg-video-voodoo (1:1.1.0-5) UNRELEASED; urgency=low
 
