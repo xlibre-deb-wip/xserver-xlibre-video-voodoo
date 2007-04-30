@@ -1,48 +1,192 @@
-2006-04-07  Adam Jackson  <ajax@freedesktop.org>
+commit f7710d5ec173626edbbbc3e00717cf8b36f0eb1c
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Thu Mar 1 11:11:28 2007 -0800
 
-	* configure.ac:
-	* src/voodoo.h:
-	* src/voodoo_dga.c:
-	* src/voodoo_driver.c:
-	* src/voodoo_hardware.c:
-	Unlibcwrap.  Bump server version requirement.  Bump to 1.1.0.
+    Replace references to XFree86/XF86Config in man page
 
-2005-12-20  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit 92ce0dc5e315bc3b96ba8d26cf2acc854cb62ec8
+Author: Adam Jackson <ajax@benzedrine.nwnk.net>
+Date:   Fri Oct 13 18:51:36 2006 -0400
 
-	* configure.ac:
-	Update package version for X11R7 release.
+    Bump to 1.1.1
 
-2005-12-14  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit 3d2a18a636230257e78cb013eadef77ecbdf2496
+Author: A Costa <agcosta@gis.net>
+Date:   Thu Sep 21 22:51:52 2006 +1000
 
-	* configure.ac:
-	Update package version number for final X11R7 release candidate.
+    Typo fix (Debian bug #364555).
 
-2005-12-06  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit e6743d920ddb245bd2af6c047dd769ae2deb9a74
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Fri Apr 7 21:58:28 2006 +0000
 
-	* man/Makefile.am:
-	Change *man_SOURCES ==> *man_PRE to fix autotools warnings.
+    Unlibcwrap. Bump server version requirement. Bump to 1.1.0.
 
-2005-12-03  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit 61355da3d5b6c4d0ddc8c850de9d26ff614c5446
+Author: Kevin E Martin <kem@kem.org>
+Date:   Wed Dec 21 02:30:04 2005 +0000
 
-	* configure.ac:
-	Update package version number for X11R7 RC3 release.
+    Update package version for X11R7 release.
 
-2005-12-01  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit d7babb0733fbc829316ccd45d9c9cfb9b2a1a7b8
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Mon Dec 19 16:25:56 2005 +0000
 
-	* configure.ac:
-	Remove extraneous AC_MSG_RESULT.
+    Stub COPYING files
 
-2005-11-29  Adam Jackson  <ajax@freedesktop.org>
+commit 383cfcd075804108d745203cd0994f303d19e5f2
+Author: Kevin E Martin <kem@kem.org>
+Date:   Thu Dec 15 00:24:21 2005 +0000
 
-	* configure.ac:
-	Only build dlloader modules by default.
+    Update package version number for final X11R7 release candidate.
 
-2005-11-09  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit 10d6004d445458208704f2f2222da8b5c645c19c
+Author: Kevin E Martin <kem@kem.org>
+Date:   Tue Dec 6 22:48:41 2005 +0000
 
-	* configure.ac:
-	Update package version number for X11R7 RC2 release.
+    Change *man_SOURCES ==> *man_PRE to fix autotools warnings.
 
-2005-11-01  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+commit 01b6c002ad1fca2a764108ff8625656685d0fb92
+Author: Kevin E Martin <kem@kem.org>
+Date:   Sat Dec 3 05:49:37 2005 +0000
 
-	* configure.ac:
-	Update pkgcheck dependencies to work with separate build roots.
+    Update package version number for X11R7 RC3 release.
+
+commit 21dc72ae9cdb55fa78f0fd084f97e9ea3ca54920
+Author: Kevin E Martin <kem@kem.org>
+Date:   Fri Dec 2 02:16:12 2005 +0000
+
+    Remove extraneous AC_MSG_RESULT.
+
+commit 015e90f6b6846543e0e7749ffc2b1c35d686160c
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Tue Nov 29 23:30:06 2005 +0000
+
+    Only build dlloader modules by default.
+
+commit ce9a84fc75ff8a5cf843221e221237556fa5bb81
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Mon Nov 28 22:04:15 2005 +0000
+
+    Change *mandir targets to use new *_MAN_DIR variables set by xorg-macros.m4
+        update to fix bug #5167 (Linux prefers *.1x man pages in man1 subdir)
+
+commit 35a05598c57e05007178a3ec63dd814d1b3f7bd1
+Author: Eric Anholt <anholt@freebsd.org>
+Date:   Mon Nov 21 10:49:23 2005 +0000
+
+    Add .cvsignores for drivers.
+
+commit 4cc9473165a23e03d4107fee56a6837ca0a008b0
+Author: Kevin E Martin <kem@kem.org>
+Date:   Wed Nov 9 21:15:23 2005 +0000
+
+    Update package version number for X11R7 RC2 release.
+
+commit c4424080af70cf905bc60ce1d0b7c422b2c5993c
+Author: Kevin E Martin <kem@kem.org>
+Date:   Tue Nov 1 15:08:57 2005 +0000
+
+    Update pkgcheck depedencies to work with separate build roots.
+
+commit ed78cee70cd76dd0f43141abdf803f2a469baeaa
+Author: Kevin E Martin <kem@kem.org>
+Date:   Wed Oct 19 02:48:06 2005 +0000
+
+    Update package version number for RC1 release.
+
+commit 1ed4d987a62bcf5a497ee22d4fa675b7134b1fd3
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Tue Oct 18 00:01:56 2005 +0000
+
+    Use @DRIVER_MAN_SUFFIX@ instead of $(DRIVER_MAN_SUFFIX) in macro
+        substitutions to work better with BSD make
+
+commit 1391fc217eb28a76e162784757da5b1b553cff72
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Mon Oct 17 22:57:38 2005 +0000
+
+    More 1.7 braindamage: define EXTRA_DIST in terms of @DRIVER_NAME@ instead
+        of indirectly
+
+commit 4d2910cbfb5d9d071736001f3e6f8ee20222dae5
+Author: Alan Coopersmith <Alan.Coopersmith@sun.com>
+Date:   Mon Oct 17 00:09:09 2005 +0000
+
+    Use sed & cpp to substitute variables in driver man pages
+
+commit 9a63bf647b0559957878766f5dc63ea100d0877e
+Author: Søren Sandmann Pedersen <sandmann@daimi.au.dk>
+Date:   Tue Sep 27 22:17:59 2005 +0000
+
+    Add some additional files to symlink.sh - and add TODO to voodoo driver
+
+commit 6df3f4b81eed9107df75ef08ab367cc64468048c
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Thu Aug 18 09:03:56 2005 +0000
+
+    Update autogen.sh to one that does objdir != srcdir.
+
+commit 22f33cd649333ca4a579add3848ef07db16f89fd
+Author: Kevin E Martin <kem@kem.org>
+Date:   Fri Jul 29 21:22:46 2005 +0000
+
+    Various changes preparing packages for RC0:
+    - Verify and update package version numbers as needed
+    - Implement versioning scheme
+    - Change bug address to point to bugzilla bug entry form
+    - Disable loadable i18n in libX11 by default (use --enable-loadable-i18n to
+        reenable it)
+    - Fix makedepend to use pkgconfig and pass distcheck
+    - Update build script to build macros first
+    - Update modular Xorg version
+
+commit 8b86d5b142e77fc772c2c84102a2fa5a1ff344e6
+Author: Søren Sandmann Pedersen <sandmann@daimi.au.dk>
+Date:   Tue Jul 26 23:58:52 2005 +0000
+
+    Build system for voodoo
+
+commit 443375cce1fb3c52b9a64ec179686b70ab9baaa5
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Mon Jul 11 02:30:07 2005 +0000
+
+    Prep for modular builds by adding guarded #include "config.h" everywhere.
+
+commit be3a1ab6f4cb4e3c53f1b08cb1174c17b7b4ff22
+Author: Adam Jackson <ajax@nwnk.net>
+Date:   Sat Jun 25 21:17:00 2005 +0000
+
+    Bug #3626: _X_EXPORT tags for video and input drivers.
+
+commit b9d71978d81671e3c216d1e2fa2dc78d8a2ff80f
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:   Wed Apr 20 12:25:33 2005 +0000
+
+    Fix includes right throughout the Xserver tree:
+    change "foo.h" to <X11/foo.h> for core headers, e.g. X.h, Xpoll.h;
+    change "foo.h", "extensions/foo.h" and "X11/foo.h" to
+        <X11/extensions/foo.h> for extension headers, e.g. Xv.h;
+    change "foo.[ch]" to <X11/Xtrans/foo.[ch]> for Xtrans files.
+
+commit 8a8e883bae4926b9b5e75e5aabb7394b91d689b9
+Author: Matthieu Herrb <matthieu.herrb@laas.fr>
+Date:   Sat Nov 27 15:14:15 2004 +0000
+
+    xc/programs/Xserver/hw/xfree86/driver/ati/radeon.man
+    xc/programs/Xserver/hw/xfree86/driver/voodoo/voodo.man
+    xc/programs/Xserver/hw/xfree86/driver/wsfb/wsfb.man XF86Config ->
+        __xconfigfile__
+
+commit 6bcc0a72857119897eb752e302b75680760bbc9d
+Author: alan <alan>
+Date:   Sun Aug 1 15:32:02 2004 +0000
+
+    Fix a typo Eric Anholt noticed. Fortunately in all normal situations this
+        didnt result in further operations being wrongly alpha blended
+
+commit 65f9bc5c20ca203f4789421399f1f06b3c628816
+Author: alan <alan>
+Date:   Thu Jun 24 16:34:25 2004 +0000
+
+    Check in the voodoo driver subtree
