@@ -1,0 +1,18 @@
+Index: xserver-xorg-video-voodoo/src/voodoo.ids
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ xserver-xorg-video-voodoo/src/voodoo.ids	2007-08-19 14:53:33.000000000 -0400
+@@ -0,0 +1,2 @@
++121A0001
++121A0002
+Index: xserver-xorg-video-voodoo/src/Makefile.am
+===================================================================
+--- xserver-xorg-video-voodoo.orig/src/Makefile.am	2007-08-19 14:55:04.000000000 -0400
++++ xserver-xorg-video-voodoo/src/Makefile.am	2007-08-19 14:55:07.000000000 -0400
+@@ -33,3 +33,6 @@
+          voodoo_driver.c \
+          voodoo.h \
+          voodoo_hardware.c
++
++pcidatadir = $(datadir)/xserver-xorg/pci
++pcidata_DATA = voodoo.ids
