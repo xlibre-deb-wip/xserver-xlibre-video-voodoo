@@ -1,3 +1,9 @@
+xserver-xorg-video-voodoo (1:1.1.1-5) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- David Nusinow <dnusinow@debian.org>  Sun, 16 Sep 2007 15:43:51 -0400
+
 xserver-xorg-video-voodoo (1:1.1.1-4) experimental; urgency=low
 
   * Build and build-dep against Xserver 1.4
