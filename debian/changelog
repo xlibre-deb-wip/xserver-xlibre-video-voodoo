@@ -1,6 +1,11 @@
-xserver-xorg-video-voodoo (1:1.1.1-6) UNRELEASED; urgency=low
+xserver-xorg-video-voodoo (1:1.2.0-1) UNRELEASED; urgency=low
 
+  [ Brice Goglin ]
   * Add upstream URL to debian/copyright.
+
+  [ Julien Cristau ]
+  * New upstream release.
+  * Refresh patch 01_gen_pci_ids.diff.
 
  -- Brice Goglin <bgoglin@debian.org>  Sat, 15 Sep 2007 02:28:55 +0200
 

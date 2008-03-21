@@ -1,3 +1,53 @@
+commit 7ff6addc069e46060fb0cc8bb8d015d34c90533e
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Mar 19 17:09:04 2008 -0400
+
+    voodoo 1.2.0
+
+commit b5b0845ed8ef7a2fa2e771961c1155f32258392e
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Mar 19 17:07:12 2008 -0400
+
+    Death to RCS tags.
+
+commit 8d0a15ff1ee1153175e6049b9cebea0c4f14dd2c
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Mar 19 17:07:10 2008 -0400
+
+    Fix distcheck
+
+commit 51b6eec500f23e4c9a012a1ab4fe9b4012bc3703
+Author: Dave Airlie <airlied@clockmaker.usersys.redhat.com>
+Date:   Mon Mar 10 15:21:01 2008 +1000
+
+    voodoo: finish pciaccess conversion
+    
+    thanks to pcpa for pointing these out
+
+commit 5d60be68f07479e54b2efeea31e82f858f0d116b
+Author: Matthieu Herrb <matthieu.herrb@laas.fr>
+Date:   Sun Mar 9 00:10:07 2008 +0100
+
+    Makefile.am: nuke RCS Id
+
+commit 2a2703732fb045f2f87d80eb56c8d9c1a58031f2
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Wed Feb 27 14:09:59 2008 +1000
+
+    oops forgot pcirename file
+
+commit a24db8c2967b4ff9039712488a1748cc47b50bae
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Wed Feb 27 13:54:43 2008 +1000
+
+    pciaccess conversion
+
+commit b6b34bf93deaf37c032c27cd863a1f6981747451
+Author: Alan Coopersmith <alan.coopersmith@sun.com>
+Date:   Thu Mar 1 11:11:53 2007 -0800
+
+    renamed: .cvsignore -> .gitignore
+
 commit f7710d5ec173626edbbbc3e00717cf8b36f0eb1c
 Author: Alan Coopersmith <alan.coopersmith@sun.com>
 Date:   Thu Mar 1 11:11:28 2007 -0800
