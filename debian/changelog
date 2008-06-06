@@ -13,6 +13,7 @@ xserver-xorg-video-voodoo (1:1.2.0-1) UNRELEASED; urgency=low
     /usr/bin/Xorg and other modules, and that's not a bug, so we want
     dpkg-shlibdeps to shut up about symbols it can't find.  Build-depend on
     dpkg-dev >= 1.14.17.
+  * Add more information about copyright holders to debian/copyright.
 
  -- Brice Goglin <bgoglin@debian.org>  Sat, 15 Sep 2007 02:28:55 +0200
 

@@ -1,7 +1,18 @@
 This package was downloaded from
 http://xorg.freedesktop.org/releases/individual/driver/
 
-Alan Cox <alan@redhat.com>
+Author: Alan Cox <alan@redhat.com>
+
+Derived from:
+XFree86 driver for Glide(tm). (Mainly for Voodoo 1 and 2 cards)
+by Henrik Harmsen (hch@cd.chalmers.se or Henrik.Harmsen@erv.ericsson.se)
+
+Portions derived from  linux/drivers/video/sstfb.c
+    -- voodoo graphics frame buffer
+    Copyright (c) 2000-2002 Ghozlane Toumi <gtoumi@laposte.net>
+Relicensed from GPL to the X license by consent of the author
+
+Other code Copyright 2004 Red Hat Inc.
 
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
