@@ -7,7 +7,6 @@ xserver-xorg-video-voodoo (1:1.2.0-1) UNRELEASED; urgency=low
   * New upstream release.
   * Refresh patch 01_gen_pci_ids.diff.
   * Remove Branden from Uploaders with his permission, and add myself.
-  * Build against xserver 1.5 rc1.
   * Bump Standards-Version to 3.7.3.
   * Drop the XS- prefix from Vcs-* control fields.
 
