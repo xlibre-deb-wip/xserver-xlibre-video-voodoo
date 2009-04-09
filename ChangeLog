@@ -1,3 +1,51 @@
+commit 01e0f1442d8883376aeb5eb764e0ee92e00d4fdb
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Tue Feb 24 10:29:41 2009 -0500
+
+    xf86-video-voodoo-1.2.1
+
+commit 1c82022d0952c6953c87609b2a44cab3af6d86cb
+Author: Alan Cox <alan@lxorguk.ukuu.org.uk>
+Date:   Fri Aug 15 19:29:14 2008 -0400
+
+    Add missing call to xf86SetCrtcForModes() and add pass through option
+    
+    This fixes the problems with the crashes and other funnies. It was almost
+    entirely down to a missing call to xf86SetCrtcForModes(). With that added
+    the clock data appears valid and the card is working.
+    
+    I've also added support for the pass through switching as that is useful
+    for debug when your text consoles are on the pass through display
+
+commit c15d43dd0c74e4406c80c0cf0491003128d05fe9
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Fri Aug 15 15:56:01 2008 -0400
+
+    Don't bother including xf86DDC.h
+    
+    3dfx kit only gained DDC support with the Voodoo Banshee, this driver only
+    covers the Voodoo 1 and 2.
+
+commit ed2d5eccbaeb07841911bbe86b57970bf7a22ab9
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Fri Aug 15 14:09:05 2008 -0400
+
+    Uninclude xf86Version.h
+
+commit 04d408fbbe95464ddbb2c6b4501d8ca788b212bb
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Fri Aug 15 14:01:18 2008 -0400
+
+    xf86Version -> xorgVersion
+
+commit 1a9402d40bb14b9101d80757544ca681980b320b
+Author: Paulo Cesar Pereira de Andrade <pcpa@mandriva.com.br>
+Date:   Wed Mar 12 18:10:53 2008 -0300
+
+    Compile warning fixes.
+    
+    Also rename macro name in voodoo_pcirename.h.
+
 commit 7ff6addc069e46060fb0cc8bb8d015d34c90533e
 Author: Adam Jackson <ajax@redhat.com>
 Date:   Wed Mar 19 17:09:04 2008 -0400

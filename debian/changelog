@@ -1,7 +1,8 @@
-xserver-xorg-video-voodoo (1:1.2.0-3) UNRELEASED; urgency=low
+xserver-xorg-video-voodoo (1:1.2.1-1) UNRELEASED; urgency=low
 
   * Run autoreconf on build.
   * Allow parallel builds.
+  * New upstream release.
 
  -- Julien Cristau <jcristau@debian.org>  Thu, 09 Apr 2009 13:27:54 +0100
 
