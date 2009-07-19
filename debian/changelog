@@ -2,8 +2,11 @@ xserver-xorg-video-voodoo (1:1.2.2-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Bump Standards-Version to 3.8.2.
+  * Remove 01_gen_pci_ids.diff. The X server now uses an internal table to
+    choose a driver during autoconfiguration.
+    + Disable patch system and remove quilt from build-deps.
 
- -- Brice Goglin <bgoglin@debian.org>  Sun, 19 Jul 2009 23:51:48 +0200
+ -- Brice Goglin <bgoglin@debian.org>  Mon, 20 Jul 2009 00:02:56 +0200
 
 xserver-xorg-video-voodoo (1:1.2.1-1) unstable; urgency=low
 

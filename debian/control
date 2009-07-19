@@ -6,7 +6,6 @@ Uploaders: David Nusinow <dnusinow@debian.org>, Julien Cristau <jcristau@debian.
 Build-Depends:
  debhelper (>= 5.0.0),
  pkg-config,
- quilt,
  automake,
  libtool,
  xutils-dev,

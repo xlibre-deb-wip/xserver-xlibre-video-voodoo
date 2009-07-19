@@ -33,7 +33,7 @@ endif
 confflags += --disable-static
 
 build: build-stamp
-build-stamp: $(STAMP_DIR)/patch
+build-stamp:
 	dh_testdir
 
 	autoreconf -vfi
@@ -45,7 +45,7 @@ build-stamp: $(STAMP_DIR)/patch
 	cd obj-$(DEB_BUILD_GNU_TYPE) && $(MAKE)
 	>$@
 
-clean: xsfclean
+clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
