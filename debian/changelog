@@ -1,8 +1,9 @@
 xserver-xorg-video-voodoo (1:1.2.2-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Bump Standards-Version to 3.8.2.
 
- -- Brice Goglin <bgoglin@debian.org>  Sun, 19 Jul 2009 23:50:58 +0200
+ -- Brice Goglin <bgoglin@debian.org>  Sun, 19 Jul 2009 23:51:48 +0200
 
 xserver-xorg-video-voodoo (1:1.2.1-1) unstable; urgency=low
 
