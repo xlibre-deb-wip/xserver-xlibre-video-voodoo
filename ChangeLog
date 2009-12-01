@@ -1,3 +1,32 @@
+commit 89250c594f29fbad78f2006c32573ac083cccd73
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Thu Jul 30 12:04:30 2009 +1000
+
+    voodoo: bump for release 1.2.3
+
+commit 405bab2048a4077b7fbe456f4f24e0d9b448829f
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Tue Jul 28 15:22:42 2009 +1000
+
+    voodoo: change to using ABI version check
+
+commit 023f464e830185c12de90f38219b34498d3e55d0
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Tue Jul 28 13:45:59 2009 +1000
+
+    voodoo: remove rac/resources includes
+
+commit 840b9fe089d79507b660bdda3f26afb72faaa6ff
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jul 16 11:59:34 2009 +1000
+
+    Update to xextproto 7.1 support.
+    
+    DPMS header was split into dpms.h (client) and dpmsconst.h (server). Drivers
+    need to include dpmsconst.h if xextproto 7.1 is available.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit b88c1e442fa9367ebb0addf744b759cea91a4868
 Author: Adam Jackson <ajax@redhat.com>
 Date:   Thu Jul 2 11:55:03 2009 -0400
