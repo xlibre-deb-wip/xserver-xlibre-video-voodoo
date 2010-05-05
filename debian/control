@@ -9,7 +9,7 @@ Build-Depends:
  automake,
  libtool,
  xutils-dev,
- xserver-xorg-dev (>= 2:1.7),
+ xserver-xorg-dev (>= 2:1.7.6.901),
  x11proto-xext-dev,
  x11proto-xf86dga-dev,
  x11proto-core-dev,
@@ -23,7 +23,7 @@ Vcs-Browser: http://git.debian.org/?p=pkg-xorg/driver/xserver-xorg-video-voodoo.
 
 Package: xserver-xorg-video-voodoo
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${xserver:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${xviddriver:Depends}
 Provides: ${xviddriver:Provides}
 Replaces: xserver-xorg (<< 6.8.2-35), xserver-xorg-driver-voodoo
 Conflicts: xserver-xorg-driver-voodoo
