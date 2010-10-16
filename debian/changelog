@@ -1,8 +1,12 @@
 xserver-xorg-video-voodoo (1:1.2.4-1) UNRELEASED; urgency=low
 
+  [ Christopher James Halse Rogers ]
   * New upstream release
     - Fix build against Xserver 1.9
   * Bump Standards-Version to 3.9.1 (no changes needed).
+
+  [ Cyril Brulebois ]
+  * Build against Xserver 1.9.1 rc1.
 
  -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 05 Aug 2010 09:51:21 +1000
 
