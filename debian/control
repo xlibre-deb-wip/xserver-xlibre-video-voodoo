@@ -6,6 +6,7 @@ Uploaders: Cyril Brulebois <kibi@debian.org>
 Build-Depends:
  debhelper (>= 8),
  dh-autoreconf,
+ quilt,
  pkg-config,
  xutils-dev,
  xserver-xorg-dev (>= 2:1.9.4),
