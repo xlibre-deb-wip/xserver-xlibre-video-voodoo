@@ -1,24 +1,18 @@
 This package was downloaded from
 http://xorg.freedesktop.org/releases/individual/driver/
 
-Author: Alan Cox <alan@redhat.com>
 
-Derived from:
-XFree86 driver for Glide(tm). (Mainly for Voodoo 1 and 2 cards)
-by Henrik Harmsen (hch@cd.chalmers.se or Henrik.Harmsen@erv.ericsson.se)
-
-Portions derived from  linux/drivers/video/sstfb.c
-    -- voodoo graphics frame buffer
     Copyright (c) 2000-2002 Ghozlane Toumi <gtoumi@laposte.net>
+
 Relicensed from GPL to the X license by consent of the author
 
-Other code Copyright 2004 Red Hat Inc.
+Other code Alan Cox (c) Copyright 2004 Red Hat Inc.
 
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
 the above copyright notice appear in all copies and that both that
 copyright notice and this permission notice appear in supporting
-documentation, and that the names of Red Hat, Alan Cox and Henrik Harmsen
+documentation, and that the names of Red Hat, Alan Cox and Ghozlane Toumi
 not be used in advertising or publicity pertaining to distribution of the
 software without specific, written prior permission.  Th authors make no
 representations about the suitability of this software for any purpose.
@@ -34,3 +28,24 @@ PERFORMANCE OF THIS SOFTWARE.
 
 THIS SOFTWARE IS NOT DESIGNED FOR USE IN SAFETY CRITICAL SYSTEMS OF
 ANY KIND OR FORM.
+
+Copyright 2007 George Sapountzis
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (including the next
+paragraph) shall be included in all copies or substantial portions of the
+Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

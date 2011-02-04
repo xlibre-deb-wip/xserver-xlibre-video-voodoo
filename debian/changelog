@@ -1,3 +1,31 @@
+xserver-xorg-video-voodoo (1:1.2.4-2) UNRELEASED; urgency=low
+
+  * Update debian/copyright from upstream COPYING.
+  * Switch to dh:
+    - Use debhelper 8.
+    - Use dh-autoreconf.
+    - Bump xserver-xorg-dev build-dep for dh_xsf_substvars and xsf
+      debhelper sequence.
+    - Specify usr/share/man in .install, remove .manpages accordingly.
+  * Remove xsfbs accordingly.
+  * Update Uploaders list. Thanks, David & Brice!
+  * Remove long obsolete Replaces/Conflicts.
+  * Wrap Depends/Provides.
+
+ -- Cyril Brulebois <kibi@debian.org>  Fri, 04 Feb 2011 09:12:59 +0100
+
+xserver-xorg-video-voodoo (1:1.2.4-1) experimental; urgency=low
+
+  [ Christopher James Halse Rogers ]
+  * New upstream release
+    - Fix build against Xserver 1.9
+  * Bump Standards-Version to 3.9.1 (no changes needed).
+
+  [ Cyril Brulebois ]
+  * Build against Xserver 1.9.1 rc1.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sat, 16 Oct 2010 22:09:35 +0200
+
 xserver-xorg-video-voodoo (1:1.2.3-2) unstable; urgency=low
 
   [ Julien Cristau ]
