@@ -1,3 +1,10 @@
+xserver-xorg-video-voodoo (1:1.2.4-2~bpo60+1) squeeze-backports; urgency=low
+
+  * Rebuild for squeeze-backports.
+  * Build against Xserver 1.10.
+
+ -- Cyril Brulebois <kibi@debian.org>  Sun, 14 Aug 2011 16:20:21 +0200
+
 xserver-xorg-video-voodoo (1:1.2.4-2) unstable; urgency=low
 
   * Update debian/copyright from upstream COPYING.
