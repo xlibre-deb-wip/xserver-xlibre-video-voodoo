@@ -1,3 +1,9 @@
+xserver-xorg-video-voodoo (1:1.2.5-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Michele Cane <michele.cane@gmail.com>  Fri, 12 Jul 2013 09:06:06 +0200
+
 xserver-xorg-video-voodoo (1:1.2.4-2) unstable; urgency=low
 
   * Update debian/copyright from upstream COPYING.
