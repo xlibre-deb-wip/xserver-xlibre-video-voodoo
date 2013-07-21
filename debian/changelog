@@ -1,6 +1,7 @@
 xserver-xorg-video-voodoo (1:1.2.5-1) UNRELEASED; urgency=low
 
   * New upstream release.
+  * Bump Standards-Version to 3.9.4, no changes needed.
 
  -- Michele Cane <michele.cane@gmail.com>  Fri, 12 Jul 2013 09:06:06 +0200
 
