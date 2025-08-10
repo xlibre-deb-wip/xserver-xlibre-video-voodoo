@@ -11,7 +11,6 @@ typedef struct {
   CARD8 *             ShadowPtr;	/* Shadow buffer */
   CARD32              ShadowPitch;
   CloseScreenProcPtr  CloseScreen;	/* Wrapped Close */
-  XAAInfoRecPtr	      AccelInfoRec;	/* Cached Accel rec for close */
   Bool                Blanked;
   Bool                PassThrough;     /* Set to restore pass through on exit */
   EntityInfoPtr       pEnt;
@@ -19,16 +18,15 @@ typedef struct {
   
   Bool		      Voodoo2;		/* Set if Voodoo2 */
   pciVideoPtr	      PciInfo;		/* PCI data */
+#ifndef XSERVER_LIBPCIACCESS
   PCITAG	      PciTag;
+#endif
   CARD32	      PhysBase;
   
   CARD32	      Width;		/* Current width */
   CARD32	      Height;   	/* Current height */
   CARD32	      FullHeight;	/* Height including pixmap cache */
   CARD32	      Tiles;		/* 32 tile count */
-  
-  int		      BlitDirX;		/* Cache blitter direction */
-  int		      BlitDirY;		/* Cache blitter direction */
   
   CARD32	      lfbMode;		/* Cached lfbMode value */
 
@@ -65,9 +63,6 @@ typedef struct {
 
   PLLClock	      vClock;
   PLLClock	      gClock;
-  
-  unsigned char	      LineBuffer[1028];	/* Draw buffer */
-  unsigned char       *LinePtr;		/* To keep XAA amused */  
 } VoodooRec, *VoodooPtr;
 
 #define TRUE 1
@@ -84,8 +79,9 @@ typedef struct {
 #define VOODOO_MINOR_VERSION 1
 #define VOODOO_PATCHLEVEL 0
 
-#define PCI_CHIP_VOODOO1	0x0001
-#define PCI_CHIP_VOODOO2	0x0002
+#define PCI_VENDOR_3DFX			0x121A
+#define PCI_CHIP_VOODOO1		0x0001 /* PCI_CHIP_VOODOO_GRAPHICS */
+#define PCI_CHIP_VOODOO2		0x0002
 
 /*
  *	Hardware functions
@@ -98,11 +94,10 @@ extern int VoodooHardwareInit(VoodooPtr pVoo);
 extern int VoodooMode(ScrnInfoPtr pScrn, DisplayModePtr mode);
 extern void VoodooBlank(VoodooPtr pVoo);
 extern int VoodooMemorySize(VoodooPtr pVoo);
-extern void Voodoo2XAAInit(ScreenPtr pScreen);
 extern void VoodooSync(ScrnInfoPtr pScrn);
 extern void VoodooReadBank(ScreenPtr pScreen, int bank);
 extern void VoodooWriteBank(ScreenPtr pScreen, int bank);
-extern void VoodooReadBank(ScreenPtr pScreen, int bank);
+extern void VoodooRestorePassThrough(VoodooPtr pVoo);
 
 /*
  *	DGA

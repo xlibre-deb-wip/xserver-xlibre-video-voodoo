@@ -5,7 +5,7 @@
  * accelerations that Glide does not expose.  The Voodoo 2 hardware has
  * bit blit (screen->screen, cpu->screen), some colour expansion and 
  * also alpha (so could do hw render even!). Also can in theory use
- * texture ram and engine to do arbitary Xv support as we have
+ * texture ram and engine to do arbitrary Xv support as we have
  * colour match on the 2D blit (ie 3D blit to back, 2D blit to front)
  * along with alpha on the Xv 8) and with some care rotation of Xv.
  * 
@@ -38,23 +38,19 @@
 #endif
 
 #include "fb.h"
-#include "mibank.h"
 #include "micmap.h"
 #include "xf86.h"
 #include "xf86_OSproc.h"
-#include "xf86PciInfo.h"
 #include "xf86Pci.h"
 #include "xf86cmap.h"
 #include "shadowfb.h"
 #include "vgaHW.h"
 #include "compiler.h"
-#include "xaa.h"
 #include "dgaproc.h"
-
 #include "voodoo.h"
 
 #define _XF86DGA_SERVER_
-#include <X11/extensions/xf86dgastr.h>
+#include <X11/extensions/xf86dgaproto.h>
 
 #include "opaque.h"
 #ifdef HAVE_XEXTPROTO_71
@@ -91,22 +87,16 @@ static Bool VoodooDGAOpenFramebuffer(ScrnInfoPtr pScrn, char **DeviceName,
 static Bool VoodooDGASetMode(ScrnInfoPtr pScrn, DGAModePtr pDGAMode)
 {
     DisplayModePtr pMode;
-    int scrnIdx = pScrn->pScreen->myNum;
-    int frameX0, frameY0;
 
     if (pDGAMode) {
 	pMode = pDGAMode->mode;
-	frameX0 = frameY0 = 0;
     }
     else {
 	if (!(pMode = pScrn->currentMode))
 	    return TRUE;
-
-	frameX0 = pScrn->frameX0;
-	frameY0 = pScrn->frameY0;
     }
 
-    if (!(*pScrn->SwitchMode)(scrnIdx, pMode, 0))
+    if (!(*pScrn->SwitchMode)(pScrn, pMode))
 	return FALSE;
     return TRUE;
 }
@@ -137,7 +127,7 @@ static void VoodooDGAAddModes(ScrnInfoPtr pScrn)
     DGAModePtr pDGAMode;
 
     do {
-	pDGAMode = xrealloc(pVoo->pDGAMode,
+	pDGAMode = realloc(pVoo->pDGAMode,
 			    (pVoo->nDGAMode + 1) * sizeof(DGAModeRec));
 	if (!pDGAMode)
 	    break;
