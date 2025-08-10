@@ -1,15 +1,14 @@
-Source: xserver-xorg-video-voodoo
+Source: xserver-xlibre-video-voodoo
 Section: x11
 Priority: optional
-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
-Uploaders: Cyril Brulebois <kibi@debian.org>
+Maintainer: apebl <a@pebl.cc>
 Build-Depends:
  debhelper (>= 8),
  dh-autoreconf,
  quilt,
  pkg-config,
  xutils-dev,
- xserver-xorg-dev (>= 2:1.14),
+ xserver-xlibre-dev (>= 2:1.14),
  x11proto-xext-dev,
  x11proto-xf86dga-dev,
  x11proto-core-dev,
@@ -18,16 +17,18 @@ Build-Depends:
  x11proto-render-dev,
  libpciaccess-dev (>= 0.8),
 Standards-Version: 3.9.4
-Vcs-Git: git://git.debian.org/git/pkg-xorg/driver/xserver-xorg-video-voodoo
-Vcs-Browser: http://git.debian.org/?p=pkg-xorg/driver/xserver-xorg-video-voodoo.git
+Vcs-Git: https://github.com/xlibre-deb/xserver-xlibre-video-voodoo.git
+Vcs-Browser: https://github.com/xlibre-deb/xserver-xlibre-video-voodoo
+Homepage: https://github.com/X11Libre
 
-Package: xserver-xorg-video-voodoo
+Package: xserver-xlibre-video-voodoo
 Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  ${xviddriver:Depends},
 Provides:
+ xserver-xorg-video-voodoo,
  ${xviddriver:Provides}
 Description: X.Org X server -- Voodoo display driver
  This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
@@ -36,3 +37,5 @@ Description: X.Org X server -- Voodoo display driver
  <URL:http://www.X.org>
  .
  This package is built from the X.org xf86-video-voodoo driver module.
+Conflicts:
+ xserver-xorg-video-voodoo,
