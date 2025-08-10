@@ -5,7 +5,7 @@
  * accelerations that Glide does not expose.  The Voodoo 2 hardware has
  * bit blit (screen->screen, cpu->screen), some colour expansion and 
  * also alpha (so could do hw render even!). Also can in theory use
- * texture ram and engine to do arbitary Xv support as we have
+ * texture ram and engine to do arbitrary Xv support as we have
  * colour match on the 2D blit (ie 3D blit to back, 2D blit to front)
  * along with alpha on the Xv 8) and with some care rotation of Xv.
  * 
@@ -50,18 +50,10 @@
 #include "xf86.h"
 #include "xf86_OSproc.h"
 #include "xorgVersion.h"
-#include "xf86PciInfo.h"
 #include "xf86Pci.h"
 #include "xf86cmap.h"
 #include "shadowfb.h"
-#if GET_ABI_MAJOR(ABI_VIDEODRV_VERSION) < 6
-#include "xf86RAC.h"
-#include "xf86Resources.h"
-#endif
 #include "compiler.h"
-#ifdef HAVE_XAA_H
-#include "xaa.h"
-#endif
 #include "voodoo.h"
 
 #define _XF86DGA_SERVER_
@@ -80,15 +72,15 @@ static const OptionInfoRec * VoodooAvailableOptions(int chipid, int busid);
 static void	VoodooIdentify(int flags);
 static Bool	VoodooProbe(DriverPtr drv, int flags);
 static Bool	VoodooPreInit(ScrnInfoPtr pScrn, int flags);
-static Bool	VoodooScreenInit(SCREEN_INIT_ARGS_DECL);
-static Bool	VoodooEnterVT(VT_FUNC_ARGS_DECL);
-static void	VoodooLeaveVT(VT_FUNC_ARGS_DECL);
-static Bool	VoodooCloseScreen(CLOSE_SCREEN_ARGS_DECL);
+static Bool	VoodooScreenInit(ScreenPtr pScreen, int argc, char **argv);
+static Bool	VoodooEnterVT(ScrnInfoPtr pScrn);
+static void	VoodooLeaveVT(ScrnInfoPtr pScrn);
+static Bool	VoodooCloseScreen(ScreenPtr pScreen);
 static Bool	VoodooSaveScreen(ScreenPtr pScreen, int mode);
-static void     VoodooFreeScreen(FREE_SCREEN_ARGS_DECL);
+static void     VoodooFreeScreen(ScrnInfoPtr arg);
 static void     VoodooRefreshArea16(ScrnInfoPtr pScrn, int num, BoxPtr pbox);
 static void     VoodooRefreshArea24(ScrnInfoPtr pScrn, int num, BoxPtr pbox);
-static Bool	VoodooSwitchMode(SWITCH_MODE_ARGS_DECL);
+static Bool	VoodooSwitchMode(ScrnInfoPtr pScrn, DisplayModePtr mode);
 static Bool     VoodooModeInit(ScrnInfoPtr pScrn, DisplayModePtr mode);
 static void     VoodooRestore(ScrnInfoPtr pScrn, Bool Closing);
 
@@ -99,7 +91,7 @@ static void	VoodooDisplayPowerManagementSet(ScrnInfoPtr pScrn,
 /* 
  * This contains the functions needed by the server after loading the
  * driver module.  It must be supplied, and gets added the driver list by
- * the Module Setup funtion in the dynamic case.  In the static case a
+ * the Module Setup function in the dynamic case.  In the static case a
  * reference to this is compiled in, and this requires that the name of
  * this DriverRec be an upper-case version of the driver name.
  */
@@ -183,7 +175,7 @@ VoodooGetRec(ScrnInfoPtr pScrn)
   if (pScrn->driverPrivate != NULL)
     return TRUE;
 
-  pScrn->driverPrivate = xnfcalloc(sizeof(VoodooRec), 1);
+  pScrn->driverPrivate = XNFcallocarray(sizeof(VoodooRec), 1);
 
   /* Initialize it */
   /* No init here yet */
@@ -481,7 +473,7 @@ VoodooPreInit(ScrnInfoPtr pScrn, int flags)
 
   /* Set up clock ranges so that the xf86ValidateModes() function will not fail a mode because of the clock
      requirement (because we don't use the clock value anyway) */
-  clockRanges = xnfcalloc(sizeof(ClockRange), 1);
+  clockRanges = XNFcallocarray(sizeof(ClockRange), 1);
   clockRanges->next = NULL;
   clockRanges->minClock = 10000;
   clockRanges->maxClock = 250000;	/* 250MHz DAC */
@@ -560,11 +552,10 @@ VoodooPreInit(ScrnInfoPtr pScrn, int flags)
     return FALSE;
   }
 
-  if (!xf86LoadSubModule(pScrn, "xaa")) {
-      xf86DrvMsg(pScrn->scrnIndex, X_INFO, "Falling back to shadowfb\n");
-      pVoo->Accel = 0;
-      pVoo->ShadowFB = 1;
-  }
+  /* No acceleration support since XAA was removed */
+  xf86DrvMsg(pScrn->scrnIndex, X_INFO, "Falling back to shadowfb\n");
+  pVoo->Accel = 0;
+  pVoo->ShadowFB = 1;
   
   if(pVoo->ShadowFB)
   {
@@ -581,7 +572,7 @@ VoodooPreInit(ScrnInfoPtr pScrn, int flags)
 /* Mandatory */
 /* This gets called at the start of each server generation */
 static Bool
-VoodooScreenInit(SCREEN_INIT_ARGS_DECL)
+VoodooScreenInit(ScreenPtr pScreen, int argc, char **argv)
 {
   ScrnInfoPtr pScrn;
   VoodooPtr pVoo;
@@ -628,7 +619,7 @@ VoodooScreenInit(SCREEN_INIT_ARGS_DECL)
   if(pVoo->ShadowFB)
   {
     pVoo->ShadowPitch = ((pScrn->virtualX * pScrn->bitsPerPixel >> 3) + 3) & ~3L;
-    pVoo->ShadowPtr = xnfalloc(pVoo->ShadowPitch * pScrn->virtualY);
+    pVoo->ShadowPtr = XNFalloc(pVoo->ShadowPitch * pScrn->virtualY);
     FBStart = pVoo->ShadowPtr;
     displayWidth = pScrn->virtualX;
   }
@@ -677,10 +668,6 @@ VoodooScreenInit(SCREEN_INIT_ARGS_DECL)
     VoodooDGAInit(pScrn, pScreen);
 
   /* Activate accelerations */
-  if(pVoo->Accel)
-  	Voodoo2XAAInit(pScreen);
-
-  miInitializeBackingStore(pScreen);
   xf86SetBackingStore(pScreen);
   
 
@@ -731,9 +718,8 @@ VoodooScreenInit(SCREEN_INIT_ARGS_DECL)
 
 /* Mandatory */
 static Bool
-VoodooEnterVT(VT_FUNC_ARGS_DECL)
+VoodooEnterVT(ScrnInfoPtr pScrn)
 {
-  SCRN_INFO_PTR(arg);
   return VoodooModeInit(pScrn, pScrn->currentMode);
 }
 
@@ -746,9 +732,8 @@ VoodooEnterVT(VT_FUNC_ARGS_DECL)
 
 /* Mandatory */
 static void
-VoodooLeaveVT(VT_FUNC_ARGS_DECL)
+VoodooLeaveVT(ScrnInfoPtr pScrn)
 {
-  SCRN_INFO_PTR(arg);
   VoodooRestore(pScrn, FALSE);
 }
 
@@ -761,7 +746,7 @@ VoodooLeaveVT(VT_FUNC_ARGS_DECL)
 
 /* Mandatory */
 static Bool
-VoodooCloseScreen(CLOSE_SCREEN_ARGS_DECL)
+VoodooCloseScreen(ScreenPtr pScreen)
 {
   ScrnInfoPtr pScrn = xf86ScreenToScrn(pScreen);
   VoodooPtr pVoo = VoodooPTR(pScrn);
@@ -770,10 +755,6 @@ VoodooCloseScreen(CLOSE_SCREEN_ARGS_DECL)
       VoodooRestore(pScrn, TRUE);
   if(pVoo->ShadowPtr)
       free(pVoo->ShadowPtr);
-#ifdef HAVE_XAA_H
-  if(pVoo->AccelInfoRec)
-      free(pVoo->AccelInfoRec);
-#endif
   if (pVoo->pDGAMode) {
     free(pVoo->pDGAMode);
     pVoo->pDGAMode = NULL;
@@ -783,7 +764,7 @@ VoodooCloseScreen(CLOSE_SCREEN_ARGS_DECL)
   pScrn->vtSema = FALSE;
 
   pScreen->CloseScreen = pVoo->CloseScreen;
-  return (*pScreen->CloseScreen)(CLOSE_SCREEN_ARGS);
+  return (*pScreen->CloseScreen)(pScreen);
 }
 
 
@@ -791,9 +772,8 @@ VoodooCloseScreen(CLOSE_SCREEN_ARGS_DECL)
 
 /* Optional */
 static void
-VoodooFreeScreen(FREE_SCREEN_ARGS_DECL)
+VoodooFreeScreen(ScrnInfoPtr pScrn)
 {
-  SCRN_INFO_PTR(arg);
   VoodooPtr pVoo = VoodooPTR(pScrn);
   /*
    * This only gets called when a screen is being deleted.  It does not
@@ -836,7 +816,6 @@ static Bool
 VoodooModeInit(ScrnInfoPtr pScrn, DisplayModePtr mode)
 {
   VoodooPtr pVoo;
-  int width, height;
 
   pVoo = VoodooPTR(pScrn);
 
@@ -862,9 +841,6 @@ VoodooModeInit(ScrnInfoPtr pScrn, DisplayModePtr mode)
     return FALSE;
   }
 
-  width = mode->HDisplay;
-  height = mode->VDisplay;
-
   /* Initialize the video card */
   if(VoodooMode(pScrn, mode))
   {
@@ -881,9 +857,8 @@ VoodooModeInit(ScrnInfoPtr pScrn, DisplayModePtr mode)
  *	this is needed but it does no harm.
  */
  
-static Bool VoodooSwitchMode(SWITCH_MODE_ARGS_DECL)
+static Bool VoodooSwitchMode(ScrnInfoPtr pScrn, DisplayModePtr mode)
 {
-  SCRN_INFO_PTR(arg);
   VoodooSync(pScrn);
   return VoodooModeInit(pScrn, mode);
 }
