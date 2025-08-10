@@ -30,12 +30,12 @@ Depends:
 Provides:
  xserver-xorg-video-voodoo,
  ${xviddriver:Provides}
-Description: X.Org X server -- Voodoo display driver
+Description: XLibre X server -- Voodoo display driver
  This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
  .
- More information about X.Org can be found at:
- <URL:http://www.X.org>
+ More information about XLibre can be found at:
+ <URL:https://github.com/X11Libre/xserver>
  .
- This package is built from the X.org xf86-video-voodoo driver module.
+ This package is built from the XLibre xf86-video-voodoo driver module.
 Conflicts:
  xserver-xorg-video-voodoo,
