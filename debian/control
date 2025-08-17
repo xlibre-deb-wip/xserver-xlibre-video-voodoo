@@ -28,7 +28,7 @@ Depends:
  ${misc:Depends},
  ${xviddriver:Depends},
 Provides:
- xserver-xorg-video-voodoo,
+ xserver-xorg-video-voodoo (= ${binary:Version}),
  ${xviddriver:Provides}
 Description: XLibre X server -- Voodoo display driver
  This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
