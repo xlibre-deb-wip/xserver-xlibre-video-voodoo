@@ -1,3 +1,10 @@
+xserver-xlibre-video-voodoo (1:1.2.6.2-1) unstable; urgency=medium
+
+  * New upstream version 1.2.6.2
+  * debian/rules: Specify xorg-module-dir
+
+ -- apebl <a@pebl.cc>  Sun, 28 Sep 2025 14:24:24 +0000
+
 xserver-xlibre-video-voodoo (1:1.2.6.1-2) unstable; urgency=medium
 
   * debian/control: Pin versions in Provides fields
